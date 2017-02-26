@@ -65,7 +65,7 @@ angular.module('baechmeupUiApp') //define a service for Wristband
           resolve(response);
         }, function errorCallback(resolve){
           reject(response);
-        };
+        });
       });
     };
     //define function to update a specific wristband
@@ -78,7 +78,7 @@ angular.module('baechmeupUiApp') //define a service for Wristband
           resolve(response);
         }, function errorCallback(resolve){
           reject(response);
-        };
+        });
       });
     };
   });

@@ -28,7 +28,7 @@ angular.module('baechmeupUiApp') //define a service for Customers
     };
 
     //define function to get one single customer
-    this.getOneSunshade = function(id){
+    this.getOneCustomer = function(id){
       return $q(function(resolve, reject) {
         $http({
           method: 'GET',
@@ -42,7 +42,7 @@ angular.module('baechmeupUiApp') //define a service for Customers
     };
 
     //define function to create a new customer
-    this.createSunshade = function(){
+    this.createCustomer = function(){
       return $q(function(resolve, reject) {
         $http({
           method: 'POST',
@@ -56,7 +56,7 @@ angular.module('baechmeupUiApp') //define a service for Customers
     };
 
     //define function to delete a specific customer
-    this.deleteSunshade = function(id){
+    this.deleteCustomer = function(id){
       return $q(function(resolve, reject ) {
         $http({
           method: 'DELETE',
@@ -65,11 +65,11 @@ angular.module('baechmeupUiApp') //define a service for Customers
           resolve(response);
         }, function errorCallback(resolve){
           reject(response);
-        };
+        });
       });
     };
     //define function to update a specific customer
-    this.updateSunshade = function(id){
+    this.updateCustomer = function(id){
       return $q(function(resolve, reject ) {
         $http({
           method: 'PUT',
@@ -78,7 +78,7 @@ angular.module('baechmeupUiApp') //define a service for Customers
           resolve(response);
         }, function errorCallback(resolve){
           reject(response);
-        };
+        });
       });
     };
   });
