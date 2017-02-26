@@ -22,6 +22,30 @@ angular.module('baechmeupUiApp')
       console.error(err);
     });
 
+    //get one sunshade from service (SunshadeService)
+    SunshadeService.getOneSunshade(id).then(function(succ) {
+      console.log(succ);
+      $scope.sunshades = succ.data;
+    }, function(err) {
+      console.log(err);
+    });
+
+    //delete one sunshade from service (SunshadeService)
+    SunshadeService.deleteSunshade(id).then(function(succ) {
+      console.log(succ);
+      $scope.sunshades = succ.data;
+    }, function(err) {
+      console.log(err);
+    });
+
+    //update one sunshade from service (SunshadeService)
+    SunshadeService.deleteSunshade(id).then(function(succ) {
+      console.log(succ);
+      $scope.sunshades = succ.data;
+    }, function(err) {
+      console.log(err);
+    });
+
     // get customers from service (CustomerService)
     CustomerService.getAllCustomers().then(function(succ) {
       console.log(succ);
@@ -29,6 +53,8 @@ angular.module('baechmeupUiApp')
     }, function(err) {
       console.error(err);
     });
+
+
 
     // get wristband from service (WristbandService)
     WristbandService.getAllWristbands().then(function(succ) {
