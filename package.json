@@ -39,5 +39,21 @@
   },
   "scripts": {
     "test": "karma start test/karma.conf.js"
-  }
+  },
+  "description": "This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular) version 0.16.0.",
+  "version": "1.0.0",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "http-server": "^0.9.0",
+    "jasmine-core": "^2.5.2",
+    "karma-jasmine": "^1.1.0",
+    "karma": "^1.5.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "phantomjs-prebuilt": "^2.1.14"
+  },
+  "author": "",
+  "license": "ISC"
 }

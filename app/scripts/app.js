@@ -1,3 +1,5 @@
+(function(){
+
 'use strict';
 
 /**
@@ -12,8 +14,8 @@ angular
   .module('baechmeupUiApp', [
     'ngResource',
     'ngRoute',
-    'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngMaterial'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -34,5 +36,8 @@ angular
       })
       .otherwise({
         redirectTo: '/'
-      });
-  });
+      })
+
+  })
+
+})();
