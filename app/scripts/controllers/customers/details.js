@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name baechmeupUiApp.controller:AboutCtrl
+ * @name baechmeupUiApp.controller:CustomersIdCtrl
  * @description
- * # AboutCtrl
+ * # CustomersIdCtrl
  * Controller of the baechmeupUiApp
  */
 angular.module('baechmeupUiApp')
-  .controller('AboutCtrl', function () {
+  .controller('CustomersIdCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

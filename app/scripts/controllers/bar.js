@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name baechmeupUiApp.controller:AdminCtrl
+ * @name baechmeupUiApp.controller:BarCtrl
  * @description
- * # AdminCtrl
+ * # BarCtrl
  * Controller of the baechmeupUiApp
  */
 angular.module('baechmeupUiApp')
-  .controller('AdminCtrl', function () {
+  .controller('BarCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

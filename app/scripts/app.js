@@ -13,9 +13,7 @@
 angular
   .module('baechmeupUiApp', [
     'ngResource',
-    'ngRoute',
-    'ngTouch',
-    'ngMaterial'
+    'ngRoute'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -24,15 +22,31 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+
+      .when('/beach', {
+        templateUrl: 'views/beach.html',
+        controller: 'BeachCtrl',
+        controllerAs: 'beach'
       })
-      .when('/admin', {
-        templateUrl: 'views/admin.html',
-        controller: 'AdminCtrl',
-        controllerAs: 'admin'
+      .when('/bar', {
+        templateUrl: 'views/bar.html',
+        controller: 'BarCtrl',
+        controllerAs: 'bar'
+      })
+      .when('/customers', {
+        templateUrl: 'views/customers.html',
+        controller: 'CustomersCtrl',
+        controllerAs: 'customers'
+      })
+      .when('/customers/:id', {
+        templateUrl: 'views/customers/details.html',
+        controller: 'CustomersIdCtrl',
+        controllerAs: 'customers_details'
+      })
+      .when('/sunshades/:id', {
+        templateUrl: 'views/sunshades/details.html',
+        controller: 'SunshadesIdCtrl',
+        controllerAs: 'sunshades_details'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,4 +1,13 @@
-<div ng-repeat="s in sunshades">
-  <p style="color: red;">{{s.IdSunshade}}</p>
-  <p>{{s.sunshadeCode}}</p>
+<h1 class="title-login">Welcome Bagni Mario</h1>
+<div class="ui three column centered grid">
+  <div ng-repeat="v in availableViews" class="column center aligned">
+    <div class="ui card {{v.color}} card-adjust">
+      <a class="image" ng-click="goTo(v.url)">
+        <i class="massive {{v.icon}} {{v.color}} icon card-icon"></i>
+      </a>
+      <div class="content">
+        <a class="header" ng-click="goTo(v.url)">{{v.description}}</a>
+      </div>
+    </div>
+  </div>
 </div>
