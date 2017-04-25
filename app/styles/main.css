@@ -4,13 +4,23 @@
 
 .title-login {
   margin-bottom: 5% !important;
-  margin-left: 5% !important;
+  margin-left: 4% !important;
+  margin-right: 5% !important;
 }
 
 .customer-total {
   float: right !important;
   margin-top: -8% !important;
   margin-right: 5% !important;
+}
+
+.menu-bar {
+  margin: 5% !important;
+}
+
+.home-button {
+  margin-top: -16.5% !important;
+  margin-left: 89% !important;
 }
 
 .sunshade-container {

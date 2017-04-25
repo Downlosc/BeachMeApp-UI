@@ -11,21 +11,21 @@ angular.module('baechmeupUiApp')
   .controller('MainCtrl', function($scope, $location) {
     $scope.availableViews = [{
       name: "beach",
-      description: "Beach",
+      description: "Spiaggia",
       url: "beach",
       color: "orange",
       icon: "sun"
     }, {
       name: "bar",
-      description: "Cafè",
+      description: "Bar",
       url: "bar",
       color: "blue",
       icon: "coffee"
     }, {
       name: "customers",
-      description: "Customers",
+      description: "Clienti",
       url: "customers",
-      color: "brown",
+      color: "green",
       icon: "users"
     }];
 

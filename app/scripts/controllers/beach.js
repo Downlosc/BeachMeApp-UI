@@ -36,4 +36,7 @@ angular.module('baechmeupUiApp')
       var indexSun = $scope.calculateNumber(ppindex, pindex, index);
       $location.path(path + '/' + indexSun);
     };
+    $scope.goToUrl = function(path){
+      $location.path(path)
+    };
   });

@@ -1,10 +1,13 @@
-<h1 class="title-login">Spiaggia Bagni Mario</h1>
+<div>
+  <h1 class="ui block header title-login">Elenco ombrelloni</h1>
+    <i class="home orange huge icon home-button" ng-click=goToUrl("")></i>
+</div>
 <div ng-repeat="c in times(rowNumber) track by $index" class="ui {{numberMap[columnBeach+1]}} column centered grid">
   <div class="column zero-width">{{$index+1}}</div>
   <div ng-repeat="c in times(columnBeach) track by $index" class="column text-center">
     <div class="{{numberMap[columnNumber]}} column text-center">
       <div data-tooltip="Ombrellone N° {{calculateNumber($parent.$parent.$index, $parent.$index, $index)}}" data-position="top center" ng-click="goTo('sunshades', $parent.$parent.$index, $parent.$index, $index)" ng-repeat="o in times(columnNumber) track by $index" class="column inline sunshade-list">
-        <i class="umbrella orange icon"></i>
+        <i class="umbrella green icon"></i>
       </div>
     </div>
   </div>
