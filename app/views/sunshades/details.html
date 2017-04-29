@@ -1,25 +1,24 @@
 <div>
-  <h1 class="ui block header title-login">Dettagli ombrellone</h1>
-  <i class="home orange huge icon home-button pointer" ng-click=goToUrl("")></i>
+  <h1 class="ui block header title-login">Dettagli ombrellone <i class="home orange huge icon float-right-only" ng-click=goToUrl("")></i></h1>
 </div>
 <h>
 <div class="ui sunshade-container">
   <div class="ui items">
     <div class="item">
       <div class="image">
-        <i class="umbrella massive orange icon"></i>
+        <img src="images/omb-{{sunshade.available ? 'gray' : sunshade.paid ? 'green' : 'red'}}.png" class="sunshade-dimensions-detail"></img>
       </div>
       <div class="content">
-        <a class="header">Ombrellone N° {{sunshadeId}}</a>
+        <a class="header">Ombrellone N° {{sunshade.num}}</a>
         <div class="meta">
-          <span class="cinema">Fam. Tal dei Tali</span>
+          <span class="cinema">{{sunshade.customer.name}}</span>
         </div>
         <div class="description">
           <p></p>
         </div>
         <div class="extra">
-          <div class="ui red label">Non Pagato</div>
-          <div class="ui label"><i class="users icon"></i> Info su Famiglia</div>
+          <div class="ui {{sunshade.available ? 'gray' : sunshade.paid ? 'green' : 'red'}} label">{{sunshade.available ? 'Disponibile' : sunshade.paid ? 'Pagato' : 'Non pagato'}}</div>
+          <div class="ui label"><i class="calendar icon"></i>{{sunshade.customer.book}}</div>
         </div>
       </div>
     </div>
@@ -28,18 +27,15 @@
     <div class="card">
       <div class="content">
         <div class="header">
-          Elliot Fu
+          {{sunshade.customer.name}}
         </div>
         <div class="meta">
-          Friends of Veronika
-        </div>
-        <div class="description">
-          Elliot requested permission to view your contact details
+          Prenotato il {{sunshade.customer.book}}
         </div>
       </div>
       <div class="extra content">
         <div class="ui two buttons">
-          <div class="ui basic green button">Visualizza Saldo</div>
+          <div ng-click="goTo('customers', sunshade.customer.id)" class="ui basic green button">Visualizza Cliente</div>
         </div>
       </div>
     </div>

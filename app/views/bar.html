@@ -1,31 +1,70 @@
 <div>
-  <h1 class="ui block header title-login">Bar - Ristorante</h1>
-    <i class="home orange huge icon home-button pointer" ng-click=goToUrl("")></i>
+  <h1 class="ui block header title-login no-margin-bottom">Bar - Ristorante <i class="home orange huge icon float-right-only" ng-click=goToUrl("")></i></h1>
 </div>
 <div class="ui pointing menu menu-bar">
-  <a class="item">
+  <a ng-click="setCategory('cafe')" class="item {{selectedCategory == 'cafe' ? 'active' : ''}}">
     Caffetteria
   </a>
-  <a class="item ">
+  <a ng-click="setCategory('antipasti')" class="item {{selectedCategory == 'antipasti' ? 'active' : ''}}">
     Antipasti
   </a>
-  <a class="item">
+  <a ng-click="setCategory('primi')" class="item {{selectedCategory == 'primi' ? 'active' : ''}}">
     Primi
   </a>
-  <a class="item">
+  <a ng-click="setCategory('secondi')" class="item {{selectedCategory == 'secondi' ? 'active' : ''}}">
     Secondi
   </a>
-  <a class="item ">
+  <a ng-click="setCategory('drink')" class="item {{selectedCategory == 'drink' ? 'active' : ''}}">
     Bevande
-  </a>
-  <a class="item active">
-    Personalizzato
   </a>
   <div class="right menu">
     <div class="item">
       <div class="ui transparent icon input">
-        <input placeholder="Cerca..." type="text">
+        <input ng-model="searchText" placeholder="Cerca..." type="text">
         <i class="search link icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<table class="ui sortable celled table customer-table float-left">
+  <thead>
+    <tr>
+      <th class="">Nome</th>
+      <th class="">Descrizione</th>
+      <th class="">Prezzo</th>
+      <th class=""></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-click="goTo('customers', c.id)" ng-repeat="i in allBar[selectedCategory] | filter:searchText" class="hover-table">
+      <td>{{i.name}}</td>
+      <td class="">{{i.description}}</td>
+      <td class="">{{i.price}} €</td>
+      <td>
+        <button ng-click="addToCart(i)" class="ui blue button">
+          + 1
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="float-right">
+  <div class="ui list full-width list-overflow full-over-width">
+    <div ng-repeat="i in totalItems track by $index" class="item">
+      <i class="coffee icon"></i>
+      <div class="content">
+        {{i.name}}
+      </div>
+    </div>
+  </div>
+  <div ng-if="totalItems.length > 0" class="ui total-bar full-over-width">
+    <div class="value">
+      {{total | currency:"€ "}}
+    </div>
+    <div class="ui vertical animated button" tabindex="0">
+      <div class="hidden content">Paga</div>
+      <div class="visible content">
+        <i class="shop icon"></i>
       </div>
     </div>
   </div>

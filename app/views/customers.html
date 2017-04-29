@@ -1,6 +1,5 @@
 <div>
-  <h1 class="ui block header title-login">Elenco clienti</h1>
-  <i class="home orange huge icon home-button pointer" ng-click=goToUrl("")></i>
+  <h1 class="ui block header title-login">Elenco clienti <i class="home orange huge icon float-right-only" ng-click=goToUrl("")></i></h1>
 </div>
 <table class="ui sortable celled table customer-table">
   <thead>
@@ -13,12 +12,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>AF4567</td>
-      <td class="">Oscar</td>
-      <td class="">Benedetti</td>
-      <td class="positive"><i class="icon checkmark"></i> Attivo</td>
-      <td class="error"><i class="attention icon"></i> 0 €</td>
+    <tr ng-click="goTo('customers', c.id)" ng-repeat="c in allCustomers" class="hover-table">
+      <td>{{c.code}}</td>
+      <td class="">{{c.firstname}}</td>
+      <td class="">{{c.lastname}}</td>
+      <td class="{{c.active ? 'positive': 'negative'}}"><i class="icon checkmark"></i>{{c.active ? 'Attivo': 'Non attivo'}}</td>
+      <td class="{{c.credit < 0 ? 'negative' : 'positive'}}"><i class="{{c.credit < 0 ? 'attention' : ''}} icon"></i>{{c.credit}}€</td>
     </tr>
   </tbody>
 </table>
