@@ -8,10 +8,11 @@
  * Controller of the baechmeupUiApp
  */
 angular.module('baechmeupUiApp')
-  .controller('CustomersIdCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('CustomersIdCtrl', function ($scope, $location) {
+    $scope.goToUrl = function(path){
+      $location.path(path);
+    };
+    $scope.goTo = function(path){
+      $location.path('/' + path);
+    };
   });

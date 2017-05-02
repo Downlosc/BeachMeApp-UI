@@ -86,7 +86,8 @@ angular.module('baechmeupUiApp')
       num:441,
       available: true,
       paid: false
-    }];
+    },
+];
     $scope.sunshadeNumber = $scope.sunshades[$scope.sunshades.length-1].num;
     $scope.columnNumber = 10;
     $scope.columnBeach = 5;

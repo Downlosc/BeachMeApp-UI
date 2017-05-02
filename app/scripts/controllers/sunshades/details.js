@@ -26,5 +26,8 @@ angular.module('baechmeupUiApp')
     $scope.goToUrl = function(path){
       $location.path(path);
     };
+    $scope.goBackOne = function(path) {
+      $location.path('/' + path);
+    }
     //ajax al server per i dettagli del sunshade
   });

@@ -50,8 +50,9 @@ angular.module('baechmeupUiApp')
       $scope.totalItems.push(item);
       $scope.calculateTotal();
     };
-    $scope.removeFromCart = function(index) {
-      $scope.totalItems = 0;
+    $scope.removeFromCart = function(item) {
+      $scope.totalItems.pop(item);
+      $scope.calculateTotal();
     };
     $scope.setCategory = function(category) {
       $scope.selectedCategory = category;
