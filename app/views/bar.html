@@ -64,11 +64,29 @@
     <div class="value">
       {{total | currency:"€ "}}
     </div>
-    <div class="ui vertical animated button" tabindex="0">
+    <div ng-click="showModal()" class="ui vertical animated button" tabindex="0">
       <div class="hidden content">Paga</div>
       <div class="visible content">
         <i class="shop icon"></i>
       </div>
     </div>
+  </div>
+</div>
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Inserisci importo ricarica!
+  </div>
+  <div class="image content">
+    <div class="icon">
+      <i class="bar icon huge"></i>
+    </div>
+    <div class="ui input payment-input">
+      <input placeholder="Inserisci il codice del braccialetto?" type="text">
+    </div>
+  </div>
+  <div class="actions">
+    <div  ng-click="hideModal()" class="ui button">Cancel</div>
+    <div class="ui button">OK</div>
   </div>
 </div>
