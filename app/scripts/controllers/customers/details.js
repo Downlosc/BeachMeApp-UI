@@ -15,4 +15,10 @@ angular.module('baechmeupUiApp')
     $scope.goTo = function(path){
       $location.path('/' + path);
     };
+    $scope.showModal = function() {
+      $('.ui.modal').modal('show');
+    };
+    $scope.hideModal = function() {
+      $('.ui.modal').modal('hide');
+    };
   });
