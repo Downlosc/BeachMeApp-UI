@@ -62,10 +62,10 @@ angular.module('baechmeupUiApp')
     };
     $scope.calculateTotal();
     $scope.showModal = function() {
-      $('.ui.modal').modal('show');
+      $('#barModal').modal('show');
     };
     $scope.hideModal = function() {
-      $('.ui.modal').modal('hide');
+      $('#barModal').modal('hide');
     };
 
   });

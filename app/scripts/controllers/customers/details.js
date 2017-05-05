@@ -16,9 +16,9 @@ angular.module('baechmeupUiApp')
       $location.path('/' + path);
     };
     $scope.showModal = function() {
-      $('.ui.modal').modal('show');
+      $('#detailModal').modal('show');
     };
     $scope.hideModal = function() {
-      $('.ui.modal').modal('hide');
+      $('#detailModal').modal('hide');
     };
   });
