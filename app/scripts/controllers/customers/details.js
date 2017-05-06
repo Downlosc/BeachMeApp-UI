@@ -8,7 +8,8 @@
  * Controller of the baechmeupUiApp
  */
 angular.module('baechmeupUiApp')
-  .controller('CustomersIdCtrl', function ($scope, $location) {
+  .controller('CustomersIdCtrl', function ($scope, $routeParams, $location, CustomerService) {
+    $scope.customer = {};
     $scope.goToUrl = function(path){
       $location.path(path);
     };
@@ -21,4 +22,13 @@ angular.module('baechmeupUiApp')
     $scope.hideModal = function() {
       $('#detailModal').modal('hide');
     };
+    $scope.getCustomer = function(){
+      CustomerService.getOneCustomer($routeParams.id).then(function(customer){
+        $scope.customer = customer.data[0];
+
+      }, function(err){
+        console.error(err);
+      })
+    };
+    $scope.getCustomer();
   });

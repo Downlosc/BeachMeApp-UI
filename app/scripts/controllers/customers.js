@@ -8,22 +8,8 @@
  * Controller of the baechmeupUiApp
  */
 angular.module('baechmeupUiApp')
-  .controller('CustomersCtrl', function($scope, $location) {
-    $scope.allCustomers = [{
-      id: 1,
-      code: 'AS4567',
-      firstname: "Oscar",
-      lastname: "Benedetti",
-      active: true,
-      credit: 34.56
-    }, {
-      id: 2,
-      code: 'AR4567',
-      firstname: "Edoardo",
-      lastname: "Spadoni",
-      active: false,
-      credit: 14.56
-    }];
+  .controller('CustomersCtrl', function($scope, $location, CustomerService) {
+    $scope.allCustomers = [];
 
     $scope.goTo = function(path, id) {
       $location.path(path + '/' + id);
@@ -31,4 +17,41 @@ angular.module('baechmeupUiApp')
     $scope.goToUrl = function(path) {
       $location.path(path)
     };
+    $scope.showModal = function() {
+      $('#addUserModal').modal('show');
+    };
+    $scope.hideModal = function() {
+      $('#addUserModal').modal('hide');
+    };
+    $scope.getCustomers = function() {
+      CustomerService.getAllCustomers().then(function(customers) {
+        $scope.allCustomers = customers.data;
+      }, function(err) {
+        console.error(err);
+      })
+    };
+
+    $scope.makeid = function() {
+      var text = "";
+      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+      for (var i = 0; i < 5; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+      return text;
+    }
+
+    $scope.saveCustomer = function(newCustomer) {
+      newCustomer.CustomerCode = $scope.makeid();
+      CustomerService.createCustomer(newCustomer).then(function(customers) {
+        console.log("success");
+        $('#addUserModal').modal('hide');
+        $scope.getCustomers();
+      }, function(err) {
+        console.error(err);
+        // show errors
+      })
+    };
+
+    $scope.getCustomers();
   });

@@ -17,15 +17,54 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-click="goTo('customers', c.id)" ng-repeat="c in allCustomers" class="hover-table">
-      <td>{{c.code}}</td>
-      <td class="">{{c.firstname}}</td>
-      <td class="">{{c.lastname}}</td>
-      <td class="{{c.active ? 'positive': 'negative'}}"><i class="icon checkmark"></i>{{c.active ? 'Attivo': 'Non attivo'}}</td>
-      <td class="{{c.credit < 0 ? 'negative' : 'positive'}}"><i class="{{c.credit < 0 ? 'attention' : ''}} icon"></i>{{c.credit}}€</td>
+    <tr ng-click="goTo('customers', c.IdCustomer)" ng-repeat="c in allCustomers" class="hover-table">
+      <td>{{c.CustomerCode}}</td>
+      <td class="">{{c.Name}}</td>
+      <td class="">{{c.Surname}}</td>
+      <td class="{{c.Stato == '1' ? 'positive': 'negative'}}"><i class="icon checkmark"></i>{{c.Stato == '1' ? 'Attivo': 'Non attivo'}}</td>
+      <td class="{{c.credit < 0 ? 'negative' : 'positive'}}"><i class="{{c.credit < 0 ? 'attention' : ''}} icon"></i>{{c.credit| currency:"€ "}}</td>
     </tr>
   </tbody>
 </table>
-<div class="ui right floated small primary labeled icon button addUser-button">
+<div ng-click="showModal()" class="ui right floated small primary labeled icon button addUser-button">
   <i class="user icon"></i> Add User
+</div>
+<div class="ui modal" id="addUserModal">
+  <i class="close icon"></i>
+  <div class="header">
+    Aggiungi Utente
+  </div>
+  <div class="image content">
+    <div class="description">
+      <form ng-submit="saveCustomer(newCustomer)" class="ui form">
+        <div class="field">
+          <label>Nome</label>
+          <input ng-model="newCustomer.Name" required type="text" name="first-name" placeholder="Nome">
+        </div>
+        <div class="field">
+          <label>Cognome</label>
+          <input ng-model="newCustomer.Surname" required type="text" name="last-name" placeholder="Cognome">
+        </div>
+        <div class="field">
+          <label>Numero Braccialetto</label>
+          <input ng-model="newCustomer.wrist_code" required type="text" name="last-name" placeholder="Numero braccialetto">
+        </div>
+        <div class="field">
+          <label>Saldo</label>
+          <input ng-model="newCustomer.credit" required type="text" name="last-name" placeholder="Saldo">
+        </div>
+        <div class="field">
+        </div>
+        <div class="">
+          <div ng-click="hideModal()" class="ui black deny button">
+            Annulla
+          </div>
+          <button type="submit" class="ui positive right labeled icon button">
+            Salva
+            <i class="checkmark icon"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

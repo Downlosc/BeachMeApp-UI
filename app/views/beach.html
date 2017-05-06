@@ -5,9 +5,9 @@
   <div class="column zero-width">{{$index+1}}</div>
   <div ng-repeat="c in times(columnBeach) track by $index" class="column text-center">
     <div class="{{numberMap[columnNumber]}} column text-center">
-      <div ng-if="parseNum($parent.$parent.$index, $parent.$index, o.num, $index)" data-tooltip="Ombrellone N° {{o.num}} {{o.available ? 'Disponibile' : o.paid ? 'Pagato' : 'Non pagato'}}" data-position="top center" ng-click="goTo('sunshades', o.id)"
+      <div ng-if="parseNum($parent.$parent.$index, $parent.$index, o.SunshadeNumber, $index)" data-tooltip="Ombrellone N° {{o.SunshadeNumber}} {{o.Available == '1' ? 'Disponibile' : o.Paid == '1' ? 'Pagato' : 'Non pagato'}}" data-position="top center" ng-click="goTo('sunshades', o.IdSunshade)"
       ng-repeat="o in sunshades" class="column inline sunshade-list">
-        <img src="images/omb-{{o.available ? 'gray' : o.paid ? 'green' : 'red'}}.png" class="sunshade-dimensions"></img>
+        <img src="images/omb-{{o.Available == '1' ? 'gray' : o.Paid == '1' ? 'green' : 'red'}}.png" class="sunshade-dimensions"></img>
       </div>
     </div>
   </div>

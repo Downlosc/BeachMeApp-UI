@@ -42,11 +42,12 @@ angular.module('baechmeupUiApp') //define a service for Customers
     };
 
     //define function to create a new customer
-    this.createCustomer = function(){
+    this.createCustomer = function(customer){
       return $q(function(resolve, reject) {
         $http({
           method: 'POST',
-          url: appConfig.API_URL + '/customer'
+          url: appConfig.API_URL + '/customer',
+          data: customer
         }).then(function successCallback(response) {
           resolve(response);
         }, function errorCallback(resolve){

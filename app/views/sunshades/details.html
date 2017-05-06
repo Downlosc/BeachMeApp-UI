@@ -12,19 +12,19 @@
   <div class="ui items">
     <div class="item">
       <div class="image">
-        <img src="images/omb-{{sunshade.available ? 'gray' : sunshade.paid ? 'green' : 'red'}}.png" class="sunshade-dimensions-detail"></img>
+        <img src="images/omb-{{sunshade.Available == '1' ? 'gray' : sunshade.Paid == '1' ? 'green' : 'red'}}.png" class="sunshade-dimensions-detail"></img>
       </div>
       <div class="content">
-        <a class="header">Ombrellone N° {{sunshade.num}}</a>
+        <a class="header">Ombrellone N° {{sunshade.SunshadeNumber}}</a>
         <div class="meta">
-          <span class="cinema">{{sunshade.customer.name}}</span>
+          <span class="cinema">{{sunshade.Customer.name}} {{sunshade.Customer.surname}}</span>
         </div>
         <div class="description">
           <p></p>
         </div>
         <div class="extra">
-          <div class="ui {{sunshade.available ? 'gray' : sunshade.paid ? 'green' : 'red'}} label">{{sunshade.available ? 'Disponibile' : sunshade.paid ? 'Pagato' : 'Non pagato'}}</div>
-          <div class="ui label"><i class="calendar icon"></i>{{sunshade.customer.book}}</div>
+          <div class="ui {{sunshade.Available == '1' ? 'gray' : sunshade.Paid == '1' ? 'green' : 'red'}} label">{{sunshade.Available == '1' ? 'Disponibile' : sunshade.Paid == '1' ? 'Pagato' : 'Non pagato'}}</div>
+          <div class="ui label"><i class="calendar icon"></i>{{sunshade.ExpiringDate | date}}</div>
         </div>
       </div>
     </div>
@@ -33,10 +33,10 @@
     <div class="card">
       <div class="content">
         <div class="header">
-          {{sunshade.customer.name}}
+          {{sunshade.Customer.name}} {{sunshade.Customer.surname}}
         </div>
         <div class="meta">
-          Prenotato il {{sunshade.customer.book}}
+          Prenotato il {{sunshade.BookingDate | date}}
         </div>
       </div>
       <div class="extra content">

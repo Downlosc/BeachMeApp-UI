@@ -14,17 +14,17 @@
     </div>
     <div class="content customer-details-image customer-details-font-size">
       <a class="header">
-        Nome e Cognome
+        {{customer.Name}} {{customer.Surname}}
       </a>
       <div class="description">
-        <p>Saldo: </p>
+        <p>Saldo: {{customer.credit | currency:"€ "}}</p>
       </div>
       <div class="extra">
         <div ng-click="showModal()" class="ui right floated primary button customer-details-button-size">
           Aggiungi Credito
           <i class="right chevron icon"></i>
         </div>
-        <div class="ui label">Limited</div>
+        <div class="ui {{customer.Stato == '1' ? 'green': 'red'}} label">{{customer.Stato == '1' ? 'Attivo':'Non attivo'}}</div>
       </div>
     </div>
   </div>
