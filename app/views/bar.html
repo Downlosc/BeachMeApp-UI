@@ -75,18 +75,23 @@
 <div class="ui modal" id="barModal">
   <i class="close icon"></i>
   <div class="header">
-    Inserisci importo ricarica!
+    Inserisci il numero del braccialetto!
   </div>
-  <div class="image content">
-    <div class="icon">
-      <i class="bar icon huge"></i>
+  <form ng-submit="payment(code)" class="ui form">
+    <div class="image content">
+      <div class="icon">
+        <i class="bar icon huge bar-icon"></i>
+      </div>
+      <div class="ui input payment-input">
+        <input placeholder="Inserisci il codice del braccialetto?" type="text">
+      </div>
     </div>
-    <div class="ui input payment-input">
-      <input placeholder="Inserisci il codice del braccialetto?" type="text">
+    <div class="actions">
+      <div  ng-click="hideModal()" class="ui button payment-buttons">Cancel</div>
+      <button type="submit" class="ui positive right labeled icon button payment-buttons">
+        Conferma
+        <i class="checkmark icon"></i>
+      </button>
     </div>
-  </div>
-  <div class="actions">
-    <div  ng-click="hideModal()" class="ui button">Cancel</div>
-    <div class="ui button">OK</div>
-  </div>
+  </form>
 </div>

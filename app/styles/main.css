@@ -151,5 +151,14 @@
 
 .payment-input {
   font-size: 130% !important;
-  margin-left: 5% !important;
+  margin-left: 10% !important;
+  margin-bottom: 1% !important;
+}
+
+.bar-icon {
+  margin-bottom: -7% !important;
+}
+
+.payment-buttons {
+  margin-bottom: 1% !important;
 }

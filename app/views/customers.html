@@ -12,6 +12,7 @@
       <th class="">Codice cliente</th>
       <th class="">Nome</th>
       <th class="">Cognome</th>
+      <th class="">Numero Braccialetto</th>
       <th class="sorted ascending">Stato</th>
       <th class="">Saldo</th>
     </tr>
@@ -21,6 +22,7 @@
       <td>{{c.CustomerCode}}</td>
       <td class="">{{c.Name}}</td>
       <td class="">{{c.Surname}}</td>
+      <td class="">{{c.wrist_code}}
       <td class="{{c.Stato == '1' ? 'positive': 'negative'}}"><i class="icon checkmark"></i>{{c.Stato == '1' ? 'Attivo': 'Non attivo'}}</td>
       <td class="{{c.credit < 0 ? 'negative' : 'positive'}}"><i class="{{c.credit < 0 ? 'attention' : ''}} icon"></i>{{c.credit| currency:"€ "}}</td>
     </tr>

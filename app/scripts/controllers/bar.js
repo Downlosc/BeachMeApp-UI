@@ -68,4 +68,8 @@ angular.module('baechmeupUiApp')
       $('#barModal').modal('hide');
     };
 
+    $scope.payment = function(code) {
+      CustomerService.getOneCustomer()
+    }
+
   });
