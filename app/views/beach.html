@@ -6,13 +6,49 @@
   <div ng-repeat="c in times(columnBeach) track by $index" class="column text-center">
     <div class="{{numberMap[columnNumber]}} column text-center">
       <div ng-if="parseNum($parent.$parent.$index, $parent.$index, o.SunshadeNumber, $index)" data-tooltip="Ombrellone N° {{o.SunshadeNumber}} {{o.Available == '1' ? 'Disponibile' : o.Paid == '1' ? 'Pagato' : 'Non pagato'}}" data-position="top center" ng-click="goTo('sunshades', o.IdSunshade)"
-      ng-repeat="o in sunshades" class="column inline sunshade-list">
+          ng-repeat="o in sunshades" class="column inline sunshade-list">
         <img src="images/omb-{{o.Available == '1' ? 'gray' : o.Paid == '1' ? 'green' : 'red'}}.png" class="sunshade-dimensions"></img>
       </div>
     </div>
   </div>
-  <!-- <div class="column zero-width">{{$index+1}}</div>
-  <div ng-repeat="s in sunshades" >
-    {{s.num}}
-  </div> -->
+</div>
+<div ng-click="showModal()" class="ui right floated small primary labeled icon button addUser-button">
+  <i class="user icon"></i> Aggiungi Ombrellone
+</div>
+<div class="ui modal" id="beachModal">
+  <i class="close icon"></i>
+  <div class="header">
+    Aggiungi Ombrellone
+  </div>
+  <div class="image content">
+    <div class="description">
+      <form ng-submit="saveSunshade(newSunshade)" class="ui form">
+        <div class="field">
+          <label>Numero Ombrellone</label>
+          <input ng-model="newSunshade.SunshadeNumber" required type="text" name="number" placeholder="Numero Ombrellone">
+        </div>
+        <div class="field">
+          <label>Proprietario</label>
+          <input ng-model="newSunshade.IdCustomer" required type="text" name="id" placeholder="Id Proprietario">
+        </div>
+        <div class="ui toggle checkbox">
+          <input type="checkbox" name="public">
+          <label>Disponibile?</label>
+        </div>
+        <div class="ui toggle checkbox">
+          <input type="checkbox" name="public">
+          <label>Pagato?</label>
+        </div>
+        <div class="">
+          <div ng-click="hideModal()" class="ui black deny button">
+            Annulla
+          </div>
+          <button type="submit" class="ui positive right labeled icon button">
+            Salva
+            <i class="checkmark icon"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

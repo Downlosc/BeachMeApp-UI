@@ -45,6 +45,12 @@ angular.module('baechmeupUiApp')
     $scope.goToUrl = function(path){
       $location.path(path)
     };
+    $scope.showModal = function() {
+      $('#beachModal').modal('show');
+    };
+    $scope.hideModal = function() {
+      $('#beachModal').modal('hide');
+    };
     $scope.getSunshade = function(){
       SunshadeService.getAllSunshades().then(function(sunshades){
         $scope.sunshades = sunshades.data;
@@ -54,6 +60,15 @@ angular.module('baechmeupUiApp')
       }, function(err){
         console.error(err);
       })
+    };
+    $scope.saveSunshade = function(newSunshade){
+        SunshadeService.createSunshade(newSunshade).then(function(sunshades) {
+          console.log('success');
+          $scope.getSunshade();
+          $('#beachModal').modal('hide');
+        }, function(err){
+          console.log(err);
+        })
     };
 
     $scope.getSunshade();

@@ -42,11 +42,12 @@ angular.module('baechmeupUiApp') //define a service for Sunshade
     };
 
     //define function to create a new sunshade
-    this.createSunshade = function(){
+    this.createSunshade = function(sunshade){
       return $q(function(resolve, reject) {
         $http({
           method: 'POST',
-          url: appConfig.API_URL + '/sunshade'
+          url: appConfig.API_URL + '/sunshade',
+          data: sunshade
         }).then(function successCallback(response) {
           resolve(response);
         }, function errorCallback(resolve){
